@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPX 뷰어</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <button type="button" id="sidebarToggle" class="sidebar-toggle-btn" aria-label="패널 접기" title="패널 접기/펼치기">
+        <span class="layout-icon"><span class="layout-icon-bar"></span></span>
+      </button>
+      <h1>GPX 뷰어</h1>
+    </div>
+    <div class="controls">
+      <div class="map-toggle" role="group" aria-label="지도 선택">
+        <input type="hidden" id="mapProvider" value="naver">
+        <span class="map-toggle-label">지도</span>
+        <span class="map-toggle-sep" aria-hidden="true">|</span>
+        <div class="map-toggle-btns">
+          <button type="button" class="toggle-btn active" data-provider="naver">네이버</button>
+          <button type="button" class="toggle-btn" data-provider="kakao">카카오</button>
+        </div>
+      </div>
+      <label class="upload-btn">
+        <input type="file" id="gpxFile" accept=".gpx" hidden>
+        <span>GPX 업로드</span>
+      </label>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <section class="panel panel-metadata">
+          <h2>메타데이터</h2>
+          <div id="metadata" class="metadata-block">GPX 파일을 업로드하세요.</div>
+        </section>
+        <section class="panel">
+          <h2>라우트</h2>
+          <div id="routes" class="panel-routes">-</div>
+        </section>
+        <section class="panel">
+          <h2>트랙</h2>
+          <div id="tracks" class="panel-tracks">-</div>
+        </section>
+        <section class="panel">
+          <h2>웨이포인트</h2>
+          <div id="waypoints" class="panel-waypoints">-</div>
+        </section>
+      </div>
+      <footer class="sidebar-footer">
+        Contact: <a href="mailto:imguno0629@gmail.com">imguno0629@gmail.com</a>
+      </footer>
+    </aside>
+    <div class="map-wrap">
+      <div id="map" class="map"></div>
+      <div id="mapPlaceholder" class="map-placeholder">지도를 불러오는 중…</div>
+    </div>
+  </main>
+
+  <script>
+    window.NAVER_CLIENT_ID = 'cux1ulsukh';
+    window.KAKAO_APP_KEY = '952ffcbb4e8604c44f53532bb40d0544';
+  </script>
+  <script src="js/app.js"></script>
+</body>
+</html>
